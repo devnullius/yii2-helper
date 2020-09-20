@@ -5,7 +5,6 @@ namespace devnullius\helper;
 
 use Yii;
 use yii\base\Module as BaseModule;
-use yii\i18n\PhpMessageSource;
 
 class Module extends BaseModule
 {
@@ -35,11 +34,11 @@ class Module extends BaseModule
 
     final public function registerTranslations(): void
     {
-        if (!isset(Yii::$app->get('i18n')->translations['modules/helper/*'])) {
-            Yii::$app->get('i18n')->translations['modules/helper/*'] = [
-                'class' => PhpMessageSource::class,
-                'basePath' => __DIR__ . '/messages',
-            ];
-        }
+        //        if (!isset(Yii::$app->get('i18n')->translations['modules/helper/*'])) {
+        //            Yii::$app->get('i18n')->translations['modules/helper/*'] = [
+        //                'class' => PhpMessageSource::class,
+        //                'basePath' => __DIR__ . '/messages',
+        //            ];
+        //        }
     }
 }
