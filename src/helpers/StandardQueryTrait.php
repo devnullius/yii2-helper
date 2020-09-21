@@ -85,4 +85,40 @@ trait StandardQueryTrait
             ($alias ? $alias . '.' : '') . $fieldName => FlagHelper::IS_NOT_ARCHIVED,
         ]);
     }
+
+    final public function isEnabled(string $alias = null, string $fieldName = 'is_enabled'): ActiveQueryInterface
+    {
+        assert($this instanceof ActiveQuery);
+
+        return $this->andWhere([
+            ($alias ? $alias . '.' : '') . $fieldName => FlagHelper::IS_ENABLED,
+        ]);
+    }
+
+    final public function isDisabled(string $alias = null, string $fieldName = 'is_enabled'): ActiveQueryInterface
+    {
+        assert($this instanceof ActiveQuery);
+
+        return $this->andWhere([
+            ($alias ? $alias . '.' : '') . $fieldName => FlagHelper::IS_DISABLED,
+        ]);
+    }
+
+    final public function isDefault(string $alias = null, string $fieldName = 'is_default'): ActiveQueryInterface
+    {
+        assert($this instanceof ActiveQuery);
+
+        return $this->andWhere([
+            ($alias ? $alias . '.' : '') . $fieldName => FlagHelper::IS_DEFAULT,
+        ]);
+    }
+
+    final public function isNotDefault(string $alias = null, string $fieldName = 'is_default'): ActiveQueryInterface
+    {
+        assert($this instanceof ActiveQuery);
+
+        return $this->andWhere([
+            ($alias ? $alias . '.' : '') . $fieldName => FlagHelper::IS_NOT_DEFAULT,
+        ]);
+    }
 }

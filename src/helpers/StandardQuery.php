@@ -22,4 +22,12 @@ interface StandardQuery
     public function isArchived(string $alias = null, string $fieldName = 'is_archived'): ActiveQueryInterface;
 
     public function isNotArchived(string $alias = null, string $fieldName = 'is_archived'): ActiveQueryInterface;
+
+    public function isEnabled(string $alias = null, string $fieldName = 'is_enabled'): ActiveQueryInterface;
+
+    public function isDisabled(string $alias = null, string $fieldName = 'is_enabled'): ActiveQueryInterface;
+
+    public function isDefault(string $alias = null, string $fieldName = 'is_default'): ActiveQueryInterface;
+
+    public function isNotDefault(string $alias = null, string $fieldName = 'is_default'): ActiveQueryInterface;
 }
