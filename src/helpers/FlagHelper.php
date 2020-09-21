@@ -18,6 +18,10 @@ class FlagHelper
     public const IS_NOT_DELETED = false;
     public const IS_ARCHIVED = true;
     public const IS_NOT_ARCHIVED = false;
+    public const IS_DEFAULT = true;
+    public const IS_NOT_DEFAULT = false;
+    public const IS_ENABLED = true;
+    public const IS_DISABLED = false;
     public static string $translateCategory = 'helpers';
 
     public static function statusName(int $status): string
@@ -84,6 +88,22 @@ class FlagHelper
         return [
             self::IS_DELETED => Yii::t(static::$translateCategory, 'deleted'),
             self::IS_NOT_DELETED => Yii::t(static::$translateCategory, 'not deleted'),
+        ];
+    }
+
+    public static function isEnabledList(): array
+    {
+        return [
+            self::IS_ENABLED => Yii::t(static::$translateCategory, 'enabled'),
+            self::IS_DISABLED => Yii::t(static::$translateCategory, 'disabled'),
+        ];
+    }
+
+    public static function isDefaultList(): array
+    {
+        return [
+            self::IS_DEFAULT => Yii::t(static::$translateCategory, 'default'),
+            self::IS_NOT_DEFAULT => Yii::t(static::$translateCategory, 'not default'),
         ];
     }
 }
