@@ -10,18 +10,24 @@ use yii\helpers\ArrayHelper;
 
 abstract class CoreHelper
 {
-    public static function attributeLabels(): array
+    public static function attributeLabels(callable $translateFunction = null): array
     {
+        if ($translateFunction === null) {
+            $translateFunction = static function (string $category, string $message, array $params = [], ?string $language = null) {
+                return Yii::t($category, $message, $params, $language);
+            };
+        }
+
         return [
-            'id' => Yii::t('helpers', 'id'),
-            'created_at' => Yii::t('helpers', 'ct.at'),
-            'updated_at' => Yii::t('helpers', 'up.at'),
-            'created_by' => Yii::t('helpers', 'ct.by'),
-            'updated_by' => Yii::t('helpers', 'up.by'),
-            'modifier' => Yii::t('helpers', 'mod'),
-            'deleted' => Yii::t('helpers', 'deleted'),
-            'is_published' => Yii::t('helpers', 'is published'),
-            'is_archived' => Yii::t('helpers', 'is published'),
+            'id' => $translateFunction('helpers', 'id'),
+            'created_at' => $translateFunction('helpers', 'ct.at'),
+            'updated_at' => $translateFunction('helpers', 'up.at'),
+            'created_by' => $translateFunction('helpers', 'ct.by'),
+            'updated_by' => $translateFunction('helpers', 'up.by'),
+            'modifier' => $translateFunction('helpers', 'mod'),
+            'deleted' => $translateFunction('helpers', 'deleted'),
+            'is_published' => $translateFunction('helpers', 'is published'),
+            'is_archived' => $translateFunction('helpers', 'is published'),
         ];
     }
 
@@ -37,11 +43,11 @@ abstract class CoreHelper
         assert($entity instanceof ActiveRecord);
         $key = $key ?? static function ($entity) {
                 return $entity['title'];
-            };
+        };
         $query = $entity::find();
         $condition = $condition ?? static function (ActiveQuery $query) {
                 return $query;
-            };
+        };
         $result = static function (ActiveQuery $query) use ($condition) {
             return $condition($query);
         };
