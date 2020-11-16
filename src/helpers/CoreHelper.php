@@ -38,7 +38,7 @@ abstract class CoreHelper
      *
      * @return array
      */
-    private static function baseEntityList(string $entity, callable $key = null, callable $condition = null): array
+    protected static function baseEntityList(string $entity, callable $key = null, callable $condition = null): array
     {
         assert($entity instanceof ActiveRecord);
         $key = $key ?? static function ($entity) {
