@@ -7,7 +7,7 @@ use yii\db\Migration;
 
 final class StdSchemaHelper
 {
-    final public static function standardFieldSet(Migration $migration): array
+    public static function standardFieldSet(Migration $migration): array
     {
         return [
             'id' => $migration->bigPrimaryKey(),
