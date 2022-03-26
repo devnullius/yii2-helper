@@ -26,8 +26,9 @@ abstract class CoreHelper
             'updated_by' => $translateFunction('helpers', 'up.by'),
             'modifier' => $translateFunction('helpers', 'mod'),
             'deleted' => $translateFunction('helpers', 'deleted'),
+            'archived' => $translateFunction('helpers', 'archived'),
             'is_published' => $translateFunction('helpers', 'is published'),
-            'is_archived' => $translateFunction('helpers', 'is published'),
+            'is_enabled' => $translateFunction('helpers', 'is enabled'),
         ];
     }
 
