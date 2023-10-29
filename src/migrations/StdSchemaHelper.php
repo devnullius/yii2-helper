@@ -39,6 +39,9 @@ final class StdSchemaHelper
             'created_by uuid DEFAULT NULL',
             'updated_by uuid DEFAULT NULL',
             'deleted_by uuid DEFAULT NULL',
+            'archived_by uuid DEFAULT NULL',
+            'published_by uuid DEFAULT NULL',
+            'enabled_by uuid DEFAULT NULL',
             'created_at' => $migration->bigInteger()->notNull()
                 ->comment('Unix time-stamp of create date.'),
             'updated_at' => $migration->bigInteger()->notNull()
@@ -67,20 +70,5 @@ final class StdSchemaHelper
     public static function executeUUIDInit(Migration $migration): void
     {
         $migration->execute('CREATE EXTENSION IF NOT EXISTS "uuid-ossp";');
-    }
-
-    public static function executeAddCreatedByComment(Migration $migration, string $field): void
-    {
-        $migration->execute('comment on column ' . $field . ' is \'Modifier id of create, if null created from system.\';');
-    }
-
-    public static function executeAddUpdatedByComment(Migration $migration, string $field): void
-    {
-        $migration->execute('comment on column ' . $field . ' is \'Modifier id of update, if null updated from system.\';');
-    }
-
-    public static function executeAddDeletedByComment(Migration $migration, string $field): void
-    {
-        $migration->execute('comment on column ' . $field . ' is \'Modifier id of deleted, if null deleted from system.\';');
     }
 }
