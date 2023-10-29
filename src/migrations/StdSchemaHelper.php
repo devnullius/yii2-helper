@@ -31,4 +31,56 @@ final class StdSchemaHelper
                 ->comment('Is item enabled, default is - disabled.'),
         ];
     }
+
+    public static function advancedUuidFieldSet(Migration $migration): array
+    {
+        return [
+            'id uuid DEFAULT uuid_generate_v4 () PRIMARY KEY',
+            'created_by uuid DEFAULT NULL',
+            'updated_by uuid DEFAULT NULL',
+            'deleted_by uuid DEFAULT NULL',
+            'created_at' => $migration->bigInteger()->notNull()
+                ->comment('Unix time-stamp of create date.'),
+            'updated_at' => $migration->bigInteger()->notNull()
+                ->comment('Unix time-stamp of update date.'),
+            'deleted_at' => $migration->bigInteger()->null()
+                ->comment('Unix time-stamp of deleted marker last change date.'),
+            'archived_at' => $migration->bigInteger()->null()
+                ->comment('Unix time-stamp of archived marker last change date.'),
+            'published_at' => $migration->bigInteger()->null()
+                ->comment('Unix time-stamp of published marker last change date.'),
+            'enabled_at' => $migration->bigInteger()->null()
+                ->comment('Unix time-stamp of enabled marker last change date.'),
+            'modifier' => $migration->string()->notNull()->defaultValue('user')
+                ->comment('Operation performer entity name.'),
+            'deleted' => $migration->boolean()->defaultValue(false)
+                ->comment('If true, row softly deleted, only marker.'),
+            'archived' => $migration->boolean()->defaultValue(false)
+                ->comment('If true, row archived, only marker.'),
+            'is_published' => $migration->boolean()->defaultValue(false)
+                ->comment('Is item published, default is - not published.'),
+            'is_enabled' => $migration->boolean()->defaultValue(false)
+                ->comment('Is item enabled, default is - disabled.'),
+        ];
+    }
+
+    public static function executeUUIDInit(Migration $migration): void
+    {
+        $migration->execute('CREATE EXTENSION IF NOT EXISTS "uuid-ossp";');
+    }
+
+    public static function executeAddCreatedByComment(Migration $migration, string $field): void
+    {
+        $migration->execute('comment on column ' . $field . ' is \'Modifier id of create, if null created from system.\';');
+    }
+
+    public static function executeAddUpdatedByComment(Migration $migration, string $field): void
+    {
+        $migration->execute('comment on column ' . $field . ' is \'Modifier id of update, if null updated from system.\';');
+    }
+
+    public static function executeAddDeletedByComment(Migration $migration, string $field): void
+    {
+        $migration->execute('comment on column ' . $field . ' is \'Modifier id of deleted, if null deleted from system.\';');
+    }
 }
