@@ -42,9 +42,9 @@ final class StdSchemaHelper
             'archived_by uuid DEFAULT NULL',
             'published_by uuid DEFAULT NULL',
             'enabled_by uuid DEFAULT NULL',
-            'created_at' => $migration->bigInteger()->notNull()
+            'created_at' => $migration->bigInteger()->null()
                 ->comment('Unix time-stamp of create date.'),
-            'updated_at' => $migration->bigInteger()->notNull()
+            'updated_at' => $migration->bigInteger()->null()
                 ->comment('Unix time-stamp of update date.'),
             'deleted_at' => $migration->bigInteger()->null()
                 ->comment('Unix time-stamp of deleted marker last change date.'),
