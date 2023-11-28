@@ -25,9 +25,9 @@ final class StdSchemaHelper
                 ->comment('If true, row softly deleted, only marker.'),
             'archived' => $migration->boolean()->defaultValue(false)
                 ->comment('If true, row archived, only marker.'),
-            'is_published' => $migration->boolean()->defaultValue(false)
+            'published' => $migration->boolean()->defaultValue(false)
                 ->comment('Is item published, default is - not published.'),
-            'is_enabled' => $migration->boolean()->defaultValue(false)
+            'enabled' => $migration->boolean()->defaultValue(false)
                 ->comment('Is item enabled, default is - disabled.'),
         ];
     }
@@ -60,9 +60,9 @@ final class StdSchemaHelper
                 ->comment('If true, row softly deleted, only marker.'),
             'archived' => $migration->boolean()->defaultValue(false)
                 ->comment('If true, row archived, only marker.'),
-            'is_published' => $migration->boolean()->defaultValue(false)
+            'published' => $migration->boolean()->defaultValue(false)
                 ->comment('Is item published, default is - not published.'),
-            'is_enabled' => $migration->boolean()->defaultValue(false)
+            'enabled' => $migration->boolean()->defaultValue(false)
                 ->comment('Is item enabled, default is - disabled.'),
         ];
     }

@@ -41,22 +41,22 @@ trait StandardMarkFunctionTrait
         $this->markNegative($fieldName);
     }
 
-    public function markAsEnabled(string $fieldName = 'is_enabled'): void
+    public function markAsEnabled(string $fieldName = 'enabled'): void
     {
         $this->markPositive($fieldName);
     }
 
-    public function markAsDisabled(string $fieldName = 'is_enabled'): void
+    public function markAsDisabled(string $fieldName = 'enabled'): void
     {
         $this->markNegative($fieldName);
     }
 
-    public function markAsPublished(string $fieldName = 'is_published'): void
+    public function markAsPublished(string $fieldName = 'published'): void
     {
         $this->markPositive($fieldName);
     }
 
-    public function markAsUnPublished(string $fieldName = 'is_published'): void
+    public function markAsUnPublished(string $fieldName = 'published'): void
     {
         $this->markNegative($fieldName);
     }
