@@ -8,7 +8,7 @@ use yii\base\Module as BaseModule;
 
 class Module extends BaseModule
 {
-    public const VERSION = '1.0.0';
+    public const string VERSION = '1.0.0';
 
     /**
      * Translate module message
@@ -20,12 +20,12 @@ class Module extends BaseModule
      *
      * @return string
      */
-    public static function t(string $category, string $message, array $params = [], string $language = null): string
+    public static function t(string $category, string $message, array $params = [], string|null $language = null): string
     {
         return Yii::t('modules/helper/' . $category, $message, $params, $language);
     }
 
-    public function init()
+    public function init(): void
     {
         parent::init();
 

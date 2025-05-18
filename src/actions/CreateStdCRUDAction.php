@@ -16,12 +16,11 @@ use function assert;
 abstract class CreateStdCRUDAction extends Action
 {
     public $modelClass;
-    public $view = 'create';
-    public $redirectView = 'view';
+    public string $view = 'create';
+    public string $redirectView = 'view';
 
     /**
      * @return string|Response
-     * @throws ErrorException
      */
     public function run()
     {

@@ -14,7 +14,7 @@ use function assert;
  */
 trait StandardQueryTrait
 {
-    final public function isPublished(string $alias = null, string $fieldName = 'published'): ActiveQueryInterface
+    final public function isPublished(string|null $alias = null, string $fieldName = 'published'): ActiveQueryInterface
     {
         assert($this instanceof ActiveQuery);
 
@@ -23,7 +23,7 @@ trait StandardQueryTrait
         ]);
     }
 
-    final public function isNotPublished(string $alias = null, string $fieldName = 'published'): ActiveQueryInterface
+    final public function isNotPublished(string|null $alias = null, string $fieldName = 'published'): ActiveQueryInterface
     {
         assert($this instanceof ActiveQuery);
 
@@ -32,7 +32,7 @@ trait StandardQueryTrait
         ]);
     }
 
-    final public function isActive(string $alias = null, string $fieldName = 'status'): ActiveQueryInterface
+    final public function isActive(string|null $alias = null, string $fieldName = 'status'): ActiveQueryInterface
     {
         assert($this instanceof ActiveQuery);
 
@@ -41,7 +41,7 @@ trait StandardQueryTrait
         ]);
     }
 
-    final public function isDraft(string $alias = null, string $fieldName = 'status'): ActiveQueryInterface
+    final public function isDraft(string|null $alias = null, string $fieldName = 'status'): ActiveQueryInterface
     {
         assert($this instanceof ActiveQuery);
 
@@ -50,7 +50,7 @@ trait StandardQueryTrait
         ]);
     }
 
-    final public function isDeleted(string $alias = null, string $fieldName = 'deleted'): ActiveQueryInterface
+    final public function isDeleted(string|null $alias = null, string $fieldName = 'deleted'): ActiveQueryInterface
     {
         assert($this instanceof ActiveQuery);
 
@@ -59,7 +59,7 @@ trait StandardQueryTrait
         ]);
     }
 
-    final public function isNotDeleted(string $alias = null, string $fieldName = 'deleted'): ActiveQueryInterface
+    final public function isNotDeleted(string|null $alias = null, string $fieldName = 'deleted'): ActiveQueryInterface
     {
         assert($this instanceof ActiveQuery);
 
@@ -68,7 +68,7 @@ trait StandardQueryTrait
         ]);
     }
 
-    final public function isArchived(string $alias = null, string $fieldName = 'archived'): ActiveQueryInterface
+    final public function isArchived(string|null $alias = null, string $fieldName = 'archived'): ActiveQueryInterface
     {
         assert($this instanceof ActiveQuery);
 
@@ -77,7 +77,7 @@ trait StandardQueryTrait
         ]);
     }
 
-    final public function isNotArchived(string $alias = null, string $fieldName = 'archived'): ActiveQueryInterface
+    final public function isNotArchived(string|null $alias = null, string $fieldName = 'archived'): ActiveQueryInterface
     {
         assert($this instanceof ActiveQuery);
 
@@ -86,7 +86,7 @@ trait StandardQueryTrait
         ]);
     }
 
-    final public function isEnabled(string $alias = null, string $fieldName = 'enabled'): ActiveQueryInterface
+    final public function isEnabled(string|null $alias = null, string $fieldName = 'enabled'): ActiveQueryInterface
     {
         assert($this instanceof ActiveQuery);
 
@@ -95,7 +95,7 @@ trait StandardQueryTrait
         ]);
     }
 
-    final public function isDisabled(string $alias = null, string $fieldName = 'enabled'): ActiveQueryInterface
+    final public function isDisabled(string|null $alias = null, string $fieldName = 'enabled'): ActiveQueryInterface
     {
         assert($this instanceof ActiveQuery);
 
@@ -104,7 +104,7 @@ trait StandardQueryTrait
         ]);
     }
 
-    final public function isDefault(string $alias = null, string $fieldName = 'default'): ActiveQueryInterface
+    final public function isDefault(string|null $alias = null, string $fieldName = 'default'): ActiveQueryInterface
     {
         assert($this instanceof ActiveQuery);
 
@@ -113,7 +113,7 @@ trait StandardQueryTrait
         ]);
     }
 
-    final public function isNotDefault(string $alias = null, string $fieldName = 'default'): ActiveQueryInterface
+    final public function isNotDefault(string|null $alias = null, string $fieldName = 'default'): ActiveQueryInterface
     {
         assert($this instanceof ActiveQuery);
 

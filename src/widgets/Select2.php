@@ -9,19 +9,19 @@ use yii\web\View;
 
 class Select2 extends Widget
 {
-    public $class = 'form-control select2';
-    public $style = 'width: 100%;';
-    public $prompt = '';
-    public $tags = [];
+    public string $class = 'form-control select2';
+    public string $style = 'width: 100%;';
+    public string $prompt = '';
+    public array $tags = [];
 
-    public $data = [];
-    public $selected; // may be array for multi select
-    public $attribute = '';
+    public array $data = [];
+    public $selected; // maybe array for multi-select
+    public string $attribute = '';
     public $model;
     public $label;
     public $error;
 
-    public function init()
+    public function init(): void
     {
         parent::init();
         $options = ['class' => $this->class, 'style' => $this->style, 'prompt' => $this->prompt];

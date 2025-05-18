@@ -10,10 +10,10 @@ use yii\helpers\ArrayHelper;
 
 abstract class CoreHelper
 {
-    public static function attributeLabels(callable $translateFunction = null): array
+    public static function attributeLabels(callable|null $translateFunction = null): array
     {
         if ($translateFunction === null) {
-            $translateFunction = static function (string $category, string $message, array $params = [], ?string $language = null) {
+            $translateFunction = static function (string $category, string $message, array $params = [], string|null $language = null) {
                 return Yii::t($category, $message, $params, $language);
             };
         }
@@ -33,13 +33,13 @@ abstract class CoreHelper
     }
 
     /**
-     * @param string|ActiveRecord $entity
-     * @param callable|null       $key
-     * @param callable|null       $condition
+     * @param string        $entity
+     * @param callable|null $key
+     * @param callable|null $condition
      *
      * @return array
      */
-    protected static function baseEntityList(string $entity, callable $key = null, callable $condition = null): array
+    protected static function baseEntityList(string $entity, callable|null $key = null, callable|null $condition = null): array
     {
         assert($entity instanceof ActiveRecord);
         $key = $key ?? static function ($entity) {

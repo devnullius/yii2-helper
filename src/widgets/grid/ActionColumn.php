@@ -6,7 +6,6 @@ namespace devnullius\helper\widgets\grid;
 use devnullius\helper\Module;
 use yii\helpers\Html;
 use function array_merge;
-use function strpos;
 use function ucfirst;
 
 class ActionColumn extends \yii\grid\ActionColumn
@@ -14,7 +13,7 @@ class ActionColumn extends \yii\grid\ActionColumn
     /**
      * Initializes the default button rendering callbacks.
      */
-    protected function initDefaultButtons()
+    protected function initDefaultButtons(): void
     {
         $this->initDefaultButton('view', 'eye');
         $this->initDefaultButton('update', 'edit');
@@ -25,7 +24,7 @@ class ActionColumn extends \yii\grid\ActionColumn
     }
 
     /**
-     * Initializes the default button rendering callback for single button.
+     * Initializes the default button rendering callback for a single button.
      *
      * @param string $name              Button name as it's written in template
      * @param string $iconName          The part of fontawesome far class that makes it unique
@@ -33,23 +32,16 @@ class ActionColumn extends \yii\grid\ActionColumn
      *
      * @since 2.0.11
      */
-    protected function initDefaultButton($name, $iconName, $additionalOptions = [])
+    protected function initDefaultButton($name, $iconName, $additionalOptions = []): void
     {
-        if (!isset($this->buttons[$name]) && strpos($this->template, '{' . $name . '}') !== false) {
+        if (!isset($this->buttons[$name]) && str_contains($this->template, '{' . $name . '}')) {
             $this->buttons[$name] = function ($url, $model, $key) use ($name, $iconName, $additionalOptions) {
-                switch ($name) {
-                    case 'view':
-                        $title = Module::t('yii', 'View');
-                        break;
-                    case 'update':
-                        $title = Module::t('yii', 'Update');
-                        break;
-                    case 'delete':
-                        $title = Module::t('yii', 'Delete');
-                        break;
-                    default:
-                        $title = ucfirst($name);
-                }
+                $title = match ($name) {
+                    'view' => Module::t('yii', 'View'),
+                    'update' => Module::t('yii', 'Update'),
+                    'delete' => Module::t('yii', 'Delete'),
+                    default => ucfirst($name),
+                };
                 $options = array_merge([
                     'title' => $title,
                     'aria-label' => $title,

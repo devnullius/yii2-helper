@@ -17,9 +17,9 @@ abstract class CreateExtCRUDAction extends Action
      */
     public $form;
     public $service;
-    public $view = 'create';
+    public string $view = 'create';
     public $redirectView = 'view';
-    public $serviceAction = 'create';
+    public string $serviceAction = 'create';
 
     public function run()
     {

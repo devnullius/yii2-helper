@@ -10,18 +10,18 @@ use yii\helpers\Html;
 
 class FlagHelper
 {
-    public const IS_DRAFT = 10;
-    public const IS_ACTIVE = 20;
-    public const IS_PUBLISHED = true;
-    public const IS_NOT_PUBLISHED = false;
-    public const IS_DELETED = true;
-    public const IS_NOT_DELETED = false;
-    public const IS_ARCHIVED = true;
-    public const IS_NOT_ARCHIVED = false;
-    public const IS_DEFAULT = true;
-    public const IS_NOT_DEFAULT = false;
-    public const IS_ENABLED = true;
-    public const IS_DISABLED = false;
+    public const int IS_DRAFT = 10;
+    public const int IS_ACTIVE = 20;
+    public const bool IS_PUBLISHED = true;
+    public const bool IS_NOT_PUBLISHED = false;
+    public const bool IS_DELETED = true;
+    public const bool IS_NOT_DELETED = false;
+    public const bool IS_ARCHIVED = true;
+    public const bool IS_NOT_ARCHIVED = false;
+    public const bool IS_DEFAULT = true;
+    public const bool IS_NOT_DEFAULT = false;
+    public const bool IS_ENABLED = true;
+    public const bool IS_DISABLED = false;
     public static string $translateCategory = 'helpers';
 
     public static function statusName(int $status): string
